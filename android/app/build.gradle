@@ -25,22 +25,29 @@ apply plugin: 'com.android.application'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
+    signingConfigs {
+        debug {
+            keyAlias 'key0'
+            keyPassword 'jinelei'
+            storeFile file('../keystores')
+            storePassword 'jinelei'
+        }
+    }
     compileSdkVersion 27
-
     lintOptions {
         disable 'InvalidPackage'
     }
-
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "cn.jinelei.flounder"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [
+                AMAP_KEY: "f92df3e27831aa29f8164f296bf42457"
+        ]
     }
-
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.

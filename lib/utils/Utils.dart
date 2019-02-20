@@ -8,8 +8,8 @@ class Utils {
         children: <Widget>[
           ListTile(
             title: Text('home'),
-            leading: new CircleAvatar(
-              child: new Icon(Icons.home),
+            leading: CircleAvatar(
+              child: Icon(Icons.home),
             ),
             onTap: () {
               Navigator.pushReplacementNamed(context, '/');
@@ -17,17 +17,26 @@ class Utils {
           ),
           ListTile(
             title: Text('author'),
-            leading: new CircleAvatar(
-              child: new Icon(Icons.home),
+            leading: CircleAvatar(
+              child: Icon(Icons.home),
             ),
             onTap: () {
               Navigator.pushReplacementNamed(context, '/author');
             },
           ),
           ListTile(
+            title: Text('scan'),
+            leading: CircleAvatar(
+              child: Icon(Icons.camera),
+            ),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/scan');
+            },
+          ),
+          ListTile(
             title: Text('page a'),
-            leading: new CircleAvatar(
-              child: new Icon(Icons.access_alarm),
+            leading: CircleAvatar(
+              child: Icon(Icons.access_alarm),
             ),
             onTap: () {
               Navigator.pushNamed(context, '/a');
@@ -35,8 +44,8 @@ class Utils {
           ),
           ListTile(
             title: Text('page b'),
-            leading: new CircleAvatar(
-              child: new Icon(Icons.book),
+            leading: CircleAvatar(
+              child: Icon(Icons.book),
             ),
             onTap: () {
               Navigator.pushNamed(context, '/b');
@@ -44,8 +53,8 @@ class Utils {
           ),
           ListTile(
             title: Text('page c'),
-            leading: new CircleAvatar(
-              child: new Icon(Icons.change_history),
+            leading: CircleAvatar(
+              child: Icon(Icons.change_history),
             ),
             onTap: () {
               Navigator.pushNamed(context, '/c');

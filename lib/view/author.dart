@@ -43,9 +43,6 @@ class _AuthorState extends State<Author> {
       });
       var request = await httpClient.getUrl(Uri.parse(url));
       var response = await request.close();
-      setState(() {
-        _loading = false;
-      });
       if (response.statusCode == HttpStatus.OK) {
         String originStr = await response.transform(utf8.decoder).join();
         result = jsonDecode(originStr);
@@ -59,6 +56,7 @@ class _AuthorState extends State<Author> {
     }
     if (!mounted) return;
     setState(() {
+      _loading = false;
       _fetchFailed = fetchFailed;
       if (fetchFailed) {
         _failedReason = exceptionResult;
