@@ -1,9 +1,9 @@
+import 'package:flounder/view/my-page.dart';
 import 'package:flutter/material.dart';
 
 class ClickCounter extends StatefulWidget {
-
   @override
-  _ClickCounterState createState() => _ClickCounterState()
+  _ClickCounterState createState() => _ClickCounterState();
 }
 
 class _ClickCounterState extends State<ClickCounter> {
@@ -30,10 +30,7 @@ class _ClickCounterState extends State<ClickCounter> {
             ),
             Text(
               '$_counter',
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .display1,
+              style: Theme.of(context).textTheme.display1,
             ),
           ],
         ),
@@ -45,6 +42,4 @@ class _ClickCounterState extends State<ClickCounter> {
       ),
     );
   }
-
 }
-
