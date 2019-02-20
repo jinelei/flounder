@@ -1,4 +1,4 @@
-import 'package:flounder/utils/Utils.dart';
+import 'package:flounder/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:convert';
@@ -130,7 +130,7 @@ class _AuthorState extends State<Author> {
       appBar: AppBar(
         title: Text("author list"),
       ),
-      drawer: Utils.gengerateDrawer(context),
+      drawer: utils.gengerateDrawer(context),
       body: Center(
         child: childWidget(),
       ),

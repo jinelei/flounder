@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Utils {
+class utils {
   static gengerateDrawer(BuildContext context) {
     return Drawer(
       child: ListView(

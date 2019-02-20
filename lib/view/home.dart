@@ -1,4 +1,4 @@
-import 'package:flounder/utils/Utils.dart';
+import 'package:flounder/utils/utils.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
       body: Center(
         child: Text('home page'),
       ),
-      drawer: Utils.gengerateDrawer(context),
+      drawer: utils.gengerateDrawer(context),
     );
   }
 }
