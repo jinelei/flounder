@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flounder/utils/utils.dart';
+import 'package:flounder/view/add-todo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:path/path.dart';
@@ -151,7 +152,16 @@ class _TodoState extends State<Todo> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _addTodoItem,
+        onPressed: () async {
+          final result = await Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (BuildContext context) => AddTodoItem()));
+          print('result: $result');
+          if (result != null) {
+            _addTodoItem();
+          }
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
