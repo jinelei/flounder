@@ -37,7 +37,8 @@ class _AddTodoItemState extends State<AddTodoItem> {
               ),
               onPressed: () {
                 if (this._desc != null && this._name != null) {
-                  Navigator.pop(context, '{"name": $_name, "desc": $_desc}');
+                  Navigator.pop(
+                      context, '{"name": "$_name", "desc": "$_desc"}');
                 } else {
                   showDialog(
                       context: context,

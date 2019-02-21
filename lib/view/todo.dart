@@ -52,10 +52,11 @@ class _TodoState extends State<Todo> {
     });
   }
 
-  _addTodoItem() async {
+  _addTodoItem(String name, String desc) async {
     var id = new DateTime.now().millisecondsSinceEpoch;
-    this.todoDB.rawInsert(
-        insertTodoTable, ['$id', 'test $_offset', 'test desc $_offset', '1']);
+//    this.todoDB.rawInsert(
+//        insertTodoTable, ['$id', 'test $_offset', 'test desc $_offset', '1']);
+    this.todoDB.rawInsert(insertTodoTable, ['$id', '$name', '$desc', '1']);
     this._refreshTodoList();
     if (this._todoList != null && this._todoList.length != 0) {
       double scrollTo = this._itemHeight * (this._todoList.length - 1);
@@ -158,8 +159,9 @@ class _TodoState extends State<Todo> {
               MaterialPageRoute(
                   builder: (BuildContext context) => AddTodoItem()));
           print('result: $result');
+          var json = jsonDecode(result);
           if (result != null) {
-            _addTodoItem();
+            _addTodoItem(json['name'], json['desc']);
           }
         },
         tooltip: 'Increment',
