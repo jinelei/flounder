@@ -37,7 +37,7 @@ class _MyScanState extends State<ScanQR> {
             )
           ],
         ),
-        drawer: utils.gengerateDrawer(context),
+        drawer: Utils.gengerateDrawer(context),
         body: Builder(
           builder: (BuildContext c) {
             final TapGestureRecognizer recognizer = new TapGestureRecognizer();

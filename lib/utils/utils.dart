@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class utils {
+class Utils {
   static gengerateDrawer(BuildContext context) {
     return Drawer(
       child: ListView(
@@ -31,6 +31,15 @@ class utils {
             ),
             onTap: () {
               Navigator.pushReplacementNamed(context, '/scan');
+            },
+          ),
+          ListTile(
+            title: Text('todo'),
+            leading: CircleAvatar(
+              child: Icon(Icons.camera),
+            ),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/todo');
             },
           ),
           ListTile(

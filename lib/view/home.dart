@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
       body: Center(
         child: Text('home page'),
       ),
-      drawer: utils.gengerateDrawer(context),
+      drawer: Utils.gengerateDrawer(context),
     );
   }
 }

@@ -130,7 +130,7 @@ class _AuthorState extends State<Author> {
       appBar: AppBar(
         title: Text("author list"),
       ),
-      drawer: utils.gengerateDrawer(context),
+      drawer: Utils.gengerateDrawer(context),
       body: Center(
         child: childWidget(),
       ),
