@@ -102,12 +102,12 @@ class _TodoState extends State<Todo> {
         itemBuilder: (context, index) {
           var _item = json.decode(json.encode(this._todoList[index]));
 //            print(_item);
-          if (this._itemHeight == null) {
-            this._itemHeight =
-                context.findRenderObject().paintBounds.size.height;
-          }
+//          if (this._itemHeight == null) {
+//            this._itemHeight =
+//                context.findRenderObject().paintBounds.size.height;
+//          }
           return Dismissible(
-            crossAxisEndOffset: 300.0,
+//            crossAxisEndOffset: 300.0,
             key: Key(_item["name"]),
             background: Container(color: Colors.red),
             onDismissed: (direction) {
@@ -119,14 +119,8 @@ class _TodoState extends State<Todo> {
               ));
             },
             child: Container(
-              height: _itemHeight,
+//              height: _itemHeight,
               child: ListTile(
-                leading: new CachedNetworkImage(
-                  imageUrl: imageUrl,
-                  placeholder: (context, url) =>
-                      new CircularProgressIndicator(),
-                  errorWidget: (context, url, error) => new Icon(Icons.error),
-                ),
                 title: Text('${_item["name"]}'),
                 subtitle: Text('id: ${_item["id"]}    ${_item["desc"]}'),
                 trailing: Icon(Icons.navigate_next),

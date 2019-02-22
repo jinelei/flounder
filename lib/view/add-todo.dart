@@ -6,23 +6,28 @@ class AddTodoItem extends StatefulWidget {
 }
 
 class _AddTodoItemState extends State<AddTodoItem> {
-  String _name;
-  String _desc;
-  int _status;
+  TextEditingController _nameTextEditingController =
+      new TextEditingController();
+  TextEditingController _descTextEditingController =
+      new TextEditingController();
+
+  _nameFocusNode() {
+    FocusNode _nameFocusNode = new FocusNode();
+    _nameFocusNode.addListener(() async {});
+    return _nameFocusNode;
+  }
+
+  _descFocusNode() {
+    FocusNode _descFocusNode = new FocusNode();
+    _descFocusNode.addListener(() async {});
+    return _descFocusNode;
+  }
 
   _nameChanged(String str) {
-    print('name: $str');
-    setState(() {
-      this._name = str;
-    });
+    this._descTextEditingController.value = TextEditingValue(text: str);
   }
 
-  _descChanged(String str) {
-    print('desc: $str');
-    setState(() {
-      this._desc = str;
-    });
-  }
+  _descChanged(String str) {}
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +41,10 @@ class _AddTodoItemState extends State<AddTodoItem> {
                 color: Colors.white,
               ),
               onPressed: () {
-                if (this._desc != null && this._name != null) {
-                  Navigator.pop(
-                      context, '{"name": "$_name", "desc": "$_desc"}');
+                if (this._descTextEditingController.text != null &&
+                    this._nameTextEditingController.text != null) {
+                  Navigator.pop(context,
+                      '{"name": "${_nameTextEditingController.text}", "desc": "${_descTextEditingController.text}"}');
                 } else {
                   showDialog(
                       context: context,
@@ -54,53 +60,35 @@ class _AddTodoItemState extends State<AddTodoItem> {
             child: Column(
           children: <Widget>[
             TextField(
+              controller: _nameTextEditingController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
-                icon: Icon(Icons.text_fields),
-                labelText: '名称',
-              ),
+//                  contentPadding:
+//                      EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+                  icon: Icon(Icons.note_add),
+                  prefixText: '名称',
+                  suffixText: 'test',
+                  labelText: '名称',
+                  errorBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red))),
               onChanged: _nameChanged,
+              focusNode: _nameFocusNode(),
               autofocus: false,
             ),
             TextField(
+              controller: _descTextEditingController,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
-                icon: Icon(Icons.text_fields),
-                labelText: '名称',
+                icon: Icon(Icons.description),
+                labelText: '简介',
               ),
               onChanged: _descChanged,
+              focusNode: _descFocusNode(),
               autofocus: false,
             ),
           ],
-        ))
-//      Container(
-//        child: Column(
-//          children: <Widget>[
-//            Row(
-//              children: <Widget>[
-//                TextField(
-//                  keyboardType: TextInputType.number,
-//                  decoration: InputDecoration(
-//                    contentPadding: EdgeInsets.all(10.0),
-//                    icon: Icon(Icons.text_fields),
-//                    labelText: '请输入你的姓名)',
-//                    helperText: '请输入你的真实姓名',
-//                  ),
-//                  onChanged: _textFieldChanged,
-//                  autofocus: false,
-//                ),
-//              ],
-//            ),
-//            Row(
-//              children: <Widget>[Text('desc')],
-//            )
-//          ],
-//        ),
-//      ),
-        );
+        )));
   }
 }
